@@ -1,0 +1,28 @@
+<section class="related-product container">
+    <div class="row trending-header">
+        <h2>RELATED PRODUCT</h2>
+    </div>
+    <owl-carousel-o [options]="trendingOptions">
+        <ng-template carouselSlide  *ngFor = "let p of relatedProducts, let i =index" >
+            <div class="item">
+                <div class="product-item">
+                    <a href="product/{{p.id}}" class="img-wrapper">
+                        <img class="steady-image" src="{{p.img1}}" alt="">
+                        <img class="hover-image" src="{{p.img2}}" alt="">
+                    </a>
+                    <div class="info-wrapper">
+                        <h4><a href="product/{{p.id}}">{{p.name}}</a></h4>
+                        <button (click)="addToCart(p.id)"><i class="fas fa-plus"></i></button>
+                        <div class="clear"></div>
+                    </div>
+                    <a href="shop/category/{{p.category.name}}">{{p.category.name}}</a>
+                    <span><s></s>  £{{p.price}}.00</span>
+                </div>
+            </div>
+        </ng-template>
+
+
+
+    </owl-carousel-o>
+</section>
+

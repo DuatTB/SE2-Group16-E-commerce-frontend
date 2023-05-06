@@ -1,0 +1,142 @@
+
+<section class="container aifai-detail">
+    <div class="row">
+        <div class="col-md-1 mini-images">
+            <img src="{{pro.img1}}" alt="">
+            <img src="{{pro.img2}}" alt="">
+            <img src="{{pro.img3}}" alt="">
+            <img src="{{pro.img4}}" alt="">
+        </div>
+        <div class="col-md-5 product-slide">
+            <img src="{{pro.img1}}" alt="">
+        </div>
+        <div class="col-md-6 product-detail">
+            <h1 class="product-title">{{pro.name}}</h1>
+            <a class="category-title" href="#"><span> </span></a>
+            <p class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span><a href="#">(5 customer reviews)</a></span>
+            </p>
+            <p class="short-description">
+
+            </p>
+
+            <p class="price">
+                <span>£{{pro.price}}.00 </span>
+                <s>£50.00</s>
+            </p>
+
+
+            <p>
+                <span class="quantity-wrapper">
+                    <button class="btn btn-quantity" (click)="minusProduct()">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <input [(ngModel)]="total" type="text" class="form-control input-quantity">
+                    <button class="btn btn-quantity" (click)="addProduct()">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <button (click)="addToCart(pro.id)" class="add-cart-btn btn">
+                        <i class="fas fa-plus"></i><span>ADD TO CART</span>
+                    </button>
+                </span>
+
+            </p>
+
+
+            <p class="btn-wishlist">
+                <a href="#" class="btn btn-primary">
+                    <i class="far fa-heart"></i>
+                    Add to Wishlist
+                </a>
+            </p>
+            <div class="small-info">
+                <p>PRODUCT ID: <span>{{pro.id}}</span></p>
+                <p>SKU: <span>123</span></p>
+                <p>CATEGORY: <span>{{pro.category.name}}</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="row description-bar">
+        <ul class="description-header">
+            <li [ngClass]="{'active':isShowDesc==true}">
+                <a type="button" (click)="openDesc()">Description</a>
+            </li>
+            <li [ngClass]="{'active':isShowInfo==true}">
+                <a type="button" (click)="openInfo()">Additional information</a>
+            </li>
+            <li [ngClass]="{'active':isShowRate==true}">
+                <a type="button" (click)="openRate()">Reviews (5)</a>
+            </li>
+        </ul>
+        <div class="description-details" *ngIf="isShowDesc">
+            <p>
+                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero
+                sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+            </p>
+        </div>
+        <div class="extra-info" *ngIf="isShowInfo">
+            <table>
+                <tbody>
+                    <tr>
+                        <th scope="row">TRIM</th>
+                        <td><a href="#">THICK JERSEY, SWEAT FABRIC</a></td>
+                    </tr>
+                    <tr class="even">
+                        <th scope="row">MATERIAL</th>
+                        <td><a href="#">60% COTTON, 40% POLYESTER</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">SIZE</th>
+                        <td colspan="2"><a href="#">S,M,L,XL,XXL</a></td>
+                    </tr>
+                    <tr class="even">
+                        <th scope="row">FIT</th>
+                        <td colspan="2"><a href="#">SLIM-FIT</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="reviews" *ngIf="isShowRate">
+            <h3 class="review-title">5 REVIEWS FOR ASAP BAG</h3>
+            <div *ngFor="let comment of comments" class="review">
+                <div class="avatar">
+                    <img src="	https://secure.gravatar.com/avatar/1edd7ca6c7b4a8177b4ed2bcd523f723?s=60&d=mm&r=g"
+                        alt="">
+                </div>
+
+                <div class="review-details">
+                    <p class="username">{{comment.user.username}}</p>
+                    <p class="review-date">Today</p>
+                    <p class="review-comment">{{comment.content}}</p>
+                </div>
+                <div class="rate">
+                    <p class="rating" *ngFor="let in of counter(comment.rate) ;let i = index">
+                        <i class="fas fa-star"></i>
+                    </p>
+                </div>
+
+            </div>
+
+            <div id="form-comment" style="margin-top: 20px;">
+                <form [formGroup]="nameForm" action="">
+                    <textarea name="" placeholder="write some comment" id="textArea" cols="100" rows="5"
+                        formControlName="content"></textarea>
+
+                    <button class="btn-primary btn-send" (click)="comment()">send</button>
+                </form>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</section>
+
+<app-related-product></app-related-product>

@@ -1,0 +1,91 @@
+.aifai-trending {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.aifai-trending .trending-header {
+    display: block;
+}
+
+.aifai-trending .trending-header .dash {
+    width: 1rem;
+    border-bottom: 2px solid black;
+}
+.aifai-trending .item{
+    margin: 10px;
+}
+.aifai-trending .product-item .img-wrapper {
+    display: block;
+    height: 300px;
+    width: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.aifai-trending .product-item .img-wrapper .hover-image {
+    position: absolute;
+    top: 0;width: 100%; /* or any custom size */
+    height: 100%; 
+    object-fit: contain;
+    z-index: -1;
+}
+.steady-image{
+    height: 100%; 
+    width: 100%;
+    object-fit: contain;
+}
+
+.aifai-trending .product-item .img-wrapper img {
+    transition: all linear 0.3s;
+}
+
+.aifai-trending .product-item .img-wrapper:hover img {
+    opacity: 0;
+}
+
+.aifai-trending .product-item .img-wrapper:hover .hover-image {
+    opacity: 1;width: 100%; /* or any custom size */
+    height: 100%; 
+    object-fit: contain;
+}
+
+.aifai-trending .product-item .info-wrapper {
+    position: relative;
+    padding-top: 1rem;
+}
+
+.aifai-trending .product-item a {
+    color: black;
+}
+
+.aifai-trending .product-item .info-wrapper h4 a {
+    float: left;
+    font-size: 20px;
+}
+
+.aifai-trending .product-item .info-wrapper>a {
+    position: absolute;
+    right: 0;
+    font-size: 1rem;
+    vertical-align: middle;
+}
+
+.aifai-trending .product-item .info-wrapper .clear {
+    clear: both;
+}
+
+.aifai-trending .product-item>a {
+    display: block;
+}
+
+button{
+    border: none;
+    background: none;
+    position: absolute;
+    right: 0;
+}
+button:hover{
+    cursor: pointer;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
